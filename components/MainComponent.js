@@ -66,6 +66,29 @@ const ContactNavigator = createStackNavigator(
     }
   );
 
+  const ActivitiesNavigator = createStackNavigator(
+    {
+        Activities: { screen: Activities }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#980000'
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                color: '#fff'
+              },
+              headerLeft: <Icon
+                  name='brain'
+                  type='font-awesome'
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+          />
+          })
+    }
+  );
+
 const DirectoryNavigator = createStackNavigator(
     {
       Directory: { 
