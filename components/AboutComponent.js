@@ -15,9 +15,10 @@ function Mission() {
 
   return (
     <Card
-      title={"Our Mission"}>
+      title={"About Us"}>
       <View style={{ display: "flex", flexDirection: "row", flex: 1, flexWrap: 'wrap'}}>
-        <Text>The StressLess app is designed to help users find relaxation by using the implemented features.
+        <Text>At Stress Less, our goal is to create an atmosphere that allows you to feel more relaxed and more in-tune with yourself.
+          We hope you found the tools here to be helpful. We would love to hear from you with any concerns, ideas, or inquiries.
         </Text>
       </View>
     </Card>
