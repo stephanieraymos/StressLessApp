@@ -33,7 +33,7 @@
     "bootstrap": "^4.0.0",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.12.9",
     "prop-types": "^15.6.0",
     "react-animation-components": "^3.0.0",
