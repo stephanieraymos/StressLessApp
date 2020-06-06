@@ -1,0 +1,52 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "This is a website intended to help users cope with their anxiety",
+  "main": "index.html",
+  "scripts": {
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -o css/ css/",
+    "start": "npm run watch:all",
+    "lite": "lite-server",
+    "usemin": "usemin contact.html -d dist --htmlmin -o dist/contact.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html && usemin activities.html -d dist --htmlmin -o dist/activities.html && usemin journal.html -d dist --htmlmin -o dist/journal.html && usemin music.html -d dist --htmlmin -o dist/music.html",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+  },
+  "author": "Stephanie Raymos",
+  "license": "ISC",
+  "devDependencies": {
+    "copyfiles": "^2.0.0",
+    "imagemin-cli": "^3.0.0",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.14.0",
+    "onchange": "^3.3.0",
+    "parallelshell": "^3.0.1",
+    "rimraf": "^2.6.2",
+    "usemin-cli": "^0.6.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.0.0",
+    "bootstrap-social": "^5.1.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.12.9",
+    "prop-types": "^15.6.0",
+    "react-animation-components": "^3.0.0",
+    "react-popper": "^0.9.2",
+    "react-redux": "^5.0.7",
+    "react-redux-form": "^1.16.8",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^2.3.0",
+    "reactstrap": "^5.0.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "typeface-lobster": "0.0.72",
+    "typeface-open-sans": "0.0.75"
+  }
+}
