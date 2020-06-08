@@ -5,6 +5,9 @@ import Contact from './ContactComponent';
 import Directory from './DirectoryComponent';
 import AdminInfo from './AdminInfoComponent';
 import Reservation from './ReservationComponent';
+import Music from './MusicComponent';
+import Journal from './JournalComponent';
+import Activities from './ActivitiesComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'react-native-elements';
@@ -81,6 +84,52 @@ const ContactNavigator = createStackNavigator(
               },
               headerLeft: <Icon
                   name='brain'
+                  type='font-awesome'
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+          />
+          })
+    }
+  );
+
+  const JournalNavigator = createStackNavigator(
+    {
+        Journal: { screen: Journal }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#980000'
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                color: '#fff'
+              },
+              headerLeft: <Icon
+                  name='book'
+                  type='font-awesome'
+                  iconStyle={styles.stackIcon}
+                  onPress={() => navigation.toggleDrawer()}
+          />
+          })
+    }
+  );
+
+  const MusicNavigator = createStackNavigator(
+    {
+        Music: { screen: Music }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#980000'
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                color: '#fff'
+              },
+              headerLeft: <Icon
+                  name='music'
                   type='font-awesome'
                   iconStyle={styles.stackIcon}
                   onPress={() => navigation.toggleDrawer()}
@@ -175,7 +224,7 @@ const CustomDrawerContentComponent = props => (
                     <Image source={require('./images/logo.jpg')} style={styles.drawerImage} />
                 </View>
                 <View style={{flex: 2}}>
-                    <Text style={styles.drawerHeaderText}>Deals and Codes Community</Text>
+                    <Text style={styles.drawerHeaderText}>StressLess</Text>
                 </View>
             </View>
             <DrawerItems {...props} />
@@ -247,6 +296,45 @@ const MainNavigator = createDrawerNavigator(
                 drawerIcon: ({focused}) => (
                     <Icon
                         name='address-card'
+                        type='font-awesome'
+                        size={24}
+                        color={focused ? '#980000' : 'gray'}                    />
+                )
+            }
+        },
+        Activities: {
+            screen: ActivitiesNavigator,
+            navigationOptions: {
+                drawerLabel: 'Activities',
+                drawerIcon: ({focused}) => (
+                    <Icon
+                        name='brain'
+                        type='font-awesome'
+                        size={24}
+                        color={focused ? '#980000' : 'gray'}                    />
+                )
+            }
+        },
+        Journal: {
+            screen: JournalNavigator,
+            navigationOptions: {
+                drawerLabel: 'Journal',
+                drawerIcon: ({focused}) => (
+                    <Icon
+                        name='book'
+                        type='font-awesome'
+                        size={24}
+                        color={focused ? '#980000' : 'gray'}                    />
+                )
+            }
+        },
+        Music: {
+            screen: MusicNavigator,
+            navigationOptions: {
+                drawerLabel: 'Music',
+                drawerIcon: ({focused}) => (
+                    <Icon
+                        name='music'
                         type='font-awesome'
                         size={24}
                         color={focused ? '#980000' : 'gray'}                    />
