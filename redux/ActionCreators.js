@@ -148,9 +148,14 @@ export const postFavorite = adminId => dispatch => {
     }, 2000);
 };
 
-export const addFavorite = adminId => ({
+export const addFavorite = tipId => ({
     type: ActionTypes.ADD_FAVORITE,
-    payload: adminId
+    payload: tipId
+});
+
+export const deleteFavorite = tipId => ({
+    type: ActionTypes.DELETE_FAVORITE,
+    payload: tipId
 });
 
 export const postComment = (adminId, rating, author, text) => dispatch => {
