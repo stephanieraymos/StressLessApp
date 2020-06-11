@@ -15,7 +15,7 @@ class Activities extends Component {
     return (
       <div>
         <Button
-          type=
+          type="submit"
           onPress= {() => {
             this.handlePress(this.Music);
           }}

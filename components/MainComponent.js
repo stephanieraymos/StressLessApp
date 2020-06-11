@@ -6,9 +6,6 @@ import Directory from './DirectoryComponent';
 import AdminInfo from './AdminInfoComponent';
 import Reservation from './ReservationComponent';
 import Favorites from './FavoritesComponent';
-import Music from './MusicComponent';
-import Journal from './JournalComponent';
-import Activities from './ActivitiesComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'react-native-elements';
@@ -16,6 +13,9 @@ import SafeAreaView from 'react-native-safe-area-view';
 import { connect } from 'react-redux';
 import { fetchAdmins, fetchComments, fetchPromotions,
     fetchPartners } from '../redux/ActionCreators';
+//import Music from './MusicComponent';
+//import Journal from './JournalComponent';
+//import Activities from './ActivitiesComponent';
 
 const mapDispatchToProps = {
     fetchAdmins,
