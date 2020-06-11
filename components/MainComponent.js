@@ -274,45 +274,45 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         },
-        Activities: {
-            screen: ActivitiesNavigator,
-            navigationOptions: {
-                drawerLabel: 'Activities',
-                drawerIcon: ({focused}) => (
-                    <Icon
-                        name='brain'
-                        type='font-awesome'
-                        size={24}
-                        color={focused ? '#980000' : 'gray'}                    />
-                )
-            }
-        },
-        Journal: {
-            screen: JournalNavigator,
-            navigationOptions: {
-                drawerLabel: 'Journal',
-                drawerIcon: ({focused}) => (
-                    <Icon
-                        name='book'
-                        type='font-awesome'
-                        size={24}
-                        color={focused ? '#980000' : 'gray'}                    />
-                )
-            }
-        },
-        Music: {
-            screen: MusicNavigator,
-            navigationOptions: {
-                drawerLabel: 'Music',
-                drawerIcon: ({focused}) => (
-                    <Icon
-                        name='music'
-                        type='font-awesome'
-                        size={24}
-                        color={focused ? '#980000' : 'gray'}                    />
-                )
-            }
-        }
+        // Activities: {
+        //     screen: ActivitiesNavigator,
+        //     navigationOptions: {
+        //         drawerLabel: 'Activities',
+        //         drawerIcon: ({focused}) => (
+        //             <Icon
+        //                 name='brain'
+        //                 type='font-awesome'
+        //                 size={24}
+        //                 color={focused ? '#980000' : 'gray'}                    />
+        //         )
+        //     }
+        // },
+        // Journal: {
+        //     screen: JournalNavigator,
+        //     navigationOptions: {
+        //         drawerLabel: 'Journal',
+        //         drawerIcon: ({focused}) => (
+        //             <Icon
+        //                 name='book'
+        //                 type='font-awesome'
+        //                 size={24}
+        //                 color={focused ? '#980000' : 'gray'}                    />
+        //         )
+        //     }
+        // },
+        // Music: {
+        //     screen: MusicNavigator,
+        //     navigationOptions: {
+        //         drawerLabel: 'Music',
+        //         drawerIcon: ({focused}) => (
+        //             <Icon
+        //                 name='music'
+        //                 type='font-awesome'
+        //                 size={24}
+        //                 color={focused ? '#980000' : 'gray'}                    />
+        //         )
+        //     }
+        // }
     },
     {
         drawerBackgroundColor: '#CEC8FF',

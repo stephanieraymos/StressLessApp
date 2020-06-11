@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, ScrollView } from 'react-native';
-import {  } from '../shared/';
+import { tips } from '../shared/tips';
 import { Card } from 'react-native-elements';
 import { RenderTip } from './TipInfoComponent';
 import * as Animatable from 'react-native-animatable';

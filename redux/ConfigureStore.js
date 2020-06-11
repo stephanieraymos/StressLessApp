@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {  } from './';
+import { tips } from './tips';
 import { comments } from './comments';
 import { promotions } from './promotions';
 import { partners } from './partners';
