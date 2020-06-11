@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Text, ScrollView } from 'react-native';
-import { ADMINS } from '../shared/admins';
+import {  } from '../shared/';
 import { Card } from 'react-native-elements';
-import { RenderAdmin } from './AdminInfoComponent';
+import { RenderTip } from './TipInfoComponent';
 import * as Animatable from 'react-native-animatable';
 
 class ContactComponent extends Component {
@@ -10,7 +10,7 @@ class ContactComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      admins: ADMINS,
+      tips: TIPS,
     };
   }
 
@@ -18,7 +18,7 @@ class ContactComponent extends Component {
     title: 'Contact Us'
   }
   render() {
-    <RenderAdmin />
+    <RenderTip />
     return (
       <ScrollView>
         <Animatable.View animation='fadeInDown' duration={1000} delay={1000}>
@@ -27,7 +27,7 @@ class ContactComponent extends Component {
             title={"Contact Information"}
             wrapperStyle={{ margin: 20 }} >
             <Text
-              onPress={() => this.props.admin.email}>
+              onPress={() => this.props.tip.email}>
               Email: stephanieraymos.com
         </Text>
           </Card>

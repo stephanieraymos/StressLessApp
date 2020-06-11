@@ -31,11 +31,11 @@ export const addComments = (comments) => ({
     payload: comments
 });
 
-export const fetchAdmins = () => dispatch => {
+export const fetch = () => dispatch => {
 
-    dispatch(adminsLoading());
+    dispatch(Loading());
 
-    return fetch(baseUrl + 'admins')
+    return fetch(baseUrl + 'tips')
         .then(response => {
                 if (response.ok) {
                 return response;
@@ -50,22 +50,22 @@ export const fetchAdmins = () => dispatch => {
                 throw errMess;
             })
         .then(response => response.json())
-        .then(admins => dispatch(addAdmins(admins)))
-        .catch(error => dispatch(adminsFailed(error.message)));
+        .then(tips => dispatch(addTips(tips)))
+        .catch(error => dispatch(tipsFailed(error.message)));
 };
 
-export const adminsLoading = () => ({
-    type: ActionTypes.ADMINS_LOADING
+export const tipsLoading = () => ({
+    type: ActionTypes.TIPS_LOADING
 });
 
-export const adminsFailed = errMess => ({
-    type: ActionTypes.ADMINS_FAILED,
+export const Failed = errMess => ({
+    type: ActionTypes.TIPS_FAILED,
     payload: errMess
 });
 
-export const addAdmins = admins => ({
-    type: ActionTypes.ADD_ADMINS,
-    payload: admins
+export const addTips = tips => ({
+    type: ActionTypes.ADD_TIPS,
+    payload: tips
 });
 
 export const fetchPromotions = () => dispatch => {
@@ -142,9 +142,9 @@ export const addPartners = partners => ({
     payload: partners
 });
 
-export const postFavorite = adminId => dispatch => {
+export const postFavorite = tipId => dispatch => {
     setTimeout(() => {
-        dispatch(addFavorite(adminId));
+        dispatch(addFavorite(tipId));
     }, 2000);
 };
 
@@ -158,9 +158,9 @@ export const deleteFavorite = tipId => ({
     payload: tipId
 });
 
-export const postComment = (adminId, rating, author, text) => dispatch => {
+export const postComment = (tipId, rating, author, text) => dispatch => {
     const newComment = {
-        adminId,
+        tipId,
         rating,
         author,
         text

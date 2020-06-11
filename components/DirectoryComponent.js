@@ -8,7 +8,7 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
   return {
-    admins: state.admins,
+    tips: state.tips,
   };
 };
 
@@ -30,7 +30,7 @@ class Directory extends Component {
             title={item.name}
             caption={item.description}
             featured
-            onPress={() => navigate('AdminInfo', { adminId: item.id })}
+            onPress={() => navigate('TipInfo', { tipId: item.id })}
             imageSrc={{ uri: baseUrl + item.image }}
           />
         </Animatable.View>
@@ -38,19 +38,19 @@ class Directory extends Component {
       );
     };
 
-    if (this.props.admins.isLoading) {
+    if (this.props.tips.isLoading) {
       return <Loading />;
     }
-    if (this.props.admins.errMess) {
+    if (this.props.tips.errMess) {
       return (
         <View>
-          <Text>{this.props.admins.errMess}</Text>
+          <Text>{this.props.tips.errMess}</Text>
         </View>
       );
     }
     return (
       <FlatList
-        data={this.props.admins.admins}
+        data={this.props.tips.tips}
         renderItem={renderDirectoryItem}
         keyExtractor={item => item.id.toString()}
       />

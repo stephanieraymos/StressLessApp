@@ -3,7 +3,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Contact from './ContactComponent';
 import Directory from './DirectoryComponent';
-import AdminInfo from './AdminInfoComponent';
+import TipInfo from './TipInfoComponent';
 import Reservation from './ReservationComponent';
 import Favorites from './FavoritesComponent';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
@@ -11,14 +11,14 @@ import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-
 import { Icon } from 'react-native-elements';
 import SafeAreaView from 'react-native-safe-area-view';
 import { connect } from 'react-redux';
-import { fetchAdmins, fetchComments, fetchPromotions,
+import { fetchTips, fetchComments, fetchPromotions,
     fetchPartners } from '../redux/ActionCreators';
 //import Music from './MusicComponent';
 //import Journal from './JournalComponent';
 //import Activities from './ActivitiesComponent';
 
 const mapDispatchToProps = {
-    fetchAdmins,
+    fetchTips,
     fetchComments,
     fetchPromotions,
     fetchPartners
@@ -70,76 +70,8 @@ const ContactNavigator = createStackNavigator(
     }
   );
 
-  const ActivitiesNavigator = createStackNavigator(
-    {
-        Activities: { screen: Activities }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#980000'
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                color: '#fff'
-              },
-              headerLeft: <Icon
-                  name='brain'
-                  type='font-awesome'
-                  iconStyle={styles.stackIcon}
-                  onPress={() => navigation.toggleDrawer()}
-          />
-          })
-    }
-  );
+  const DirectoryNavigator = createStackNavigator(
 
-  const JournalNavigator = createStackNavigator(
-    {
-        Journal: { screen: Journal }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#980000'
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                color: '#fff'
-              },
-              headerLeft: <Icon
-                  name='book'
-                  type='font-awesome'
-                  iconStyle={styles.stackIcon}
-                  onPress={() => navigation.toggleDrawer()}
-          />
-          })
-    }
-  );
-
-  const MusicNavigator = createStackNavigator(
-    {
-        Music: { screen: Music }
-    },
-    {
-        navigationOptions: ({navigation}) => ({
-            headerStyle: {
-                backgroundColor: '#980000'
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                color: '#fff'
-              },
-              headerLeft: <Icon
-                  name='music'
-                  type='font-awesome'
-                  iconStyle={styles.stackIcon}
-                  onPress={() => navigation.toggleDrawer()}
-          />
-          })
-    }
-  );
-
-const DirectoryNavigator = createStackNavigator(
     {
       Directory: { 
           screen: Directory,
@@ -152,7 +84,7 @@ const DirectoryNavigator = createStackNavigator(
             />
           })
         },
-      AdminInfo: { screen: AdminInfo }
+      TipInfo: { screen: TipInfo }
     }, 
     {
       initialRouteName: 'Directory',
@@ -245,7 +177,7 @@ const CustomDrawerContentComponent = props => (
             forceInset={{top: 'always', horizontal: 'never'}}>
             <View style={styles.drawerHeader}>
                 <View style={{flex: 1}}>
-                    <Image source={require('./images/logo.jpg')} style={styles.drawerImage} />
+                    <Image source={require('../shared/images/logo.jpg')} style={styles.drawerImage} />
                 </View>
                 <View style={{flex: 2}}>
                     <Text style={styles.drawerHeaderText}>StressLess</Text>
@@ -394,7 +326,7 @@ const MainNavigator = createDrawerNavigator(
 class Main extends Component {
 
     componentDidMount() {
-        this.props.fetchAdmins();
+        this.props.fetchTips();
         this.props.fetchComments();
         this.props.fetchPromotions();
         this.props.fetchPartners();

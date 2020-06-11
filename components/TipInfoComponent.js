@@ -8,30 +8,30 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
   return {
-    admins: state.admins,
+    tips: state.tips,
     comments: state.comments,
     favorites: state.favorites
   };
 };
 
 const mapDispatchToProps = {
-  postFavorite: adminId => (postFavorite(adminId)),
-  postComment: (adminId, rating, author, text) => (postComment(adminId, rating, author, text))
+  postFavorite: tipId => (postFavorite(tipId)),
+  postComment: (tipId, rating, author, text) => (postComment(tipId, rating, author, text))
 };
 
-function RenderAdmin(props) {
+function RenderTip(props) {
 
-  const { admin } = props;
+  const {  } = props;
 
-  if (admin) {
+  if (tip) {
     return (
-      <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
+      <Animatable.View animation='fadeInDown' duration={1000} delay={500}>
 
         <Card
-          featuredTitle={admin.name}
-          image={{ uri: baseUrl + admin.image }}>
+          featuredTitle={tip.name}
+          image={{ uri: baseUrl + tip.image }}>
           <Text style={{ margin: 10 }}>
-            {admin.description}
+            {tip.description}
           </Text>
           <View
             style={{
@@ -45,7 +45,7 @@ function RenderAdmin(props) {
               raised
               reverse
               onPress={() => props.favorite ?
-                console.log("Already set as a favorite admin") : props.markFavorite()}
+                console.log("Already set as a favorite tip") : props.markFavorite()}
             />
             <Icon
               style={styles.cardItem}
@@ -95,7 +95,7 @@ function RenderComments({ comments }) {
     )
   };
   return (
-    <Animatable.View animation='fadeInUp' duration={2000} delay={1000}>
+    <Animatable.View animation='fadeInUp' duration={1000} delay={500}>
 
       <Card title='Reviews'>
         <FlatList
@@ -110,7 +110,7 @@ function RenderComments({ comments }) {
   )
 }
 
-class AdminInfo extends Component {
+class TipInfo extends Component {
 
   constructor(props) {
     super(props);
@@ -126,8 +126,8 @@ class AdminInfo extends Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
-  handleComment(adminId) {
-    this.props.postComment(adminId, this.state.rating, this.state.author, this.state.text);
+  handleComment(tipId) {
+    this.props.postComment(tipId, this.state.rating, this.state.author, this.state.text);
     this.toggleModal();
   }
 
@@ -140,8 +140,8 @@ class AdminInfo extends Component {
     });
   }
 
-  markFavorite(adminId) {
-    this.props.postFavorite(adminId);
+  markFavorite(tipId) {
+    this.props.postFavorite(tipId);
   }
 
   message() {
@@ -149,19 +149,19 @@ class AdminInfo extends Component {
   }
 
   static navigationOptions = {
-    title: 'Admin Information'
+    title: 'Quick Tips Information'
   };
 
   render() {
-    const adminId = this.props.navigation.getParam('adminId');
-    const admin = this.props.admins.admins.filter(admin => admin.id === adminId)[0];
-    const comments = this.props.comments.comments.filter(comment => comment.adminId === adminId);
+    const tipId = this.props.navigation.getParam('tipId');
+    const tip = this.props.filter(tip => tip.id === tipId)[0];
+    const comments = this.props.comments.comments.filter(comment => comment.tipId === tipId);
     return (
       <ScrollView>
-        <RenderAdmin
-          admin={admin}
-          favorite={this.props.favorites.includes(adminId)}
-          markFavorite={() => this.markFavorite(adminId)}
+        <RenderTip
+          tip={tip}
+          favorite={this.props.favorites.includes(tipId)}
+          markFavorite={() => this.markFavorite(tipId)}
           onShowModal={() => this.toggleModal()}
           message={() => this.message()}
         />
@@ -209,7 +209,7 @@ class AdminInfo extends Component {
                 title='Submit'
                 color='#5637DD'
                 onPress={() => {
-                  this.handleComment(adminId);
+                  this.handleComment(tipId);
                   this.resetForm();
                 }} />
             </View>
@@ -248,4 +248,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(TipInfo);

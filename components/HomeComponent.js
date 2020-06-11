@@ -7,7 +7,7 @@ import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
-        admins: state.admins,
+        tips: state.tips,
         promotions: state.promotions,
         partners: state.partners
     };
